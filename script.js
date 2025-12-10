@@ -1,26 +1,34 @@
-// SCRIPT.JS atualizado para funcionar com os botões do HTML
+// Script da Cantina da Escola
 
-// Quantidade inicial de salgados
-let salgados = 20;
-const precoSalgado = 5;
+let quantidade = 20;
+let preco = 5;
 
-// Atualiza o texto inicial
-const texto = document.getElementById("qtdeSalgados");
-texto.textContent = `Salgados disponíveis: ${salgados} (R$${precoSalgado} cada)`;
+const quantidadeSpan = document.getElementById("quantidade");
+const mensagem = document.getElementById("mensagem");
+const btnComprar = document.getElementById("comprar");
+const btnRepor = document.getElementById("repor");
+const precoSpan = document.getElementById("preco");
 
-// Botão: Comprar 1 salgado
-document.getElementById("btnComprar").onclick = function () {
-    if (salgados > 0) {
-        salgados--;
-        texto.textContent = `Salgados disponíveis: ${salgados} (R$${precoSalgado} cada)`;
+precoSpan.textContent = preco;
+quantidadeSpan.textContent = quantidade;
+
+// Comprar salgado
+btnComprar.addEventListener("click", () => {
+    if (quantidade > 0) {
+        quantidade--;
+        quantidadeSpan.textContent = quantidade;
+        mensagem.textContent = "Você comprou 1 salgado!";
+        mensagem.style.color = "green";
     } else {
-        alert("Acabaram os salgados!");
+        mensagem.textContent = "Estoque esgotado!";
+        mensagem.style.color = "red";
     }
-};
+});
 
-// Botão: Repor estoque
-document.getElementById("btnRepor").onclick = function () {
-    salgados = 20;
-    texto.textContent = `Salgados disponíveis: ${salgados} (R$${precoSalgado} cada)`;
-};
-
+// Repor estoque
+btnRepor.addEventListener("click", () => {
+    quantidade = 20;
+    quantidadeSpan.textContent = quantidade;
+    mensagem.textContent = "Estoque reabastecido!";
+    mensagem.style.color = "blue";
+});
