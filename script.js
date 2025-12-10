@@ -38,6 +38,29 @@ if (true) {
 console.log(testeVar); // funciona (var é global)
 console.log(testeLet); // ERRO: testeLet não existe fora do bloco
 
+// Criando elementos para interação
+const titulo = document.createElement("h3");
+titulo.textContent = "Controle de Salgados";
+document.body.appendChild(titulo);
+
+// Mostra quantidade atual
+const textoSalgados = document.createElement("p");
+textoSalgados.textContent = "Salgados disponíveis: " + salgados;
+document.body.appendChild(textoSalgados);
+
+// Botão para comprar salgado
+const botaoComprar = document.createElement("button");
+botaoComprar.textContent = "Comprar 1 salgado";
+botaoComprar.onclick = function () {
+    if (salgados > 0) {
+        salgados--;
+        textoSalgados.textContent = "Salgados disponíveis: " + salgados;
+    } else {
+        alert("Acabaram os salgados!");
+    }
+};
+document.body.appendChild(botaoComprar);
+
 /*
 Objetivo do exercício:
 - var é global e pode causar problemas.
