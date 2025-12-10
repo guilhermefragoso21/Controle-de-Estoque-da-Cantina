@@ -14,7 +14,7 @@ btnComprar.addEventListener("click", () => {
         estoque--;
         atualizarTela();
     } else {
-        alert("Estoque esgotado!");
+        alert("Estoque esgotado! Total vendido= R$120,00");
     }
 });
 
