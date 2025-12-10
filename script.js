@@ -1,34 +1,26 @@
-// Script da Cantina da Escola
+let estoque = 20;
+const preco = 6;
 
-let quantidade = 20;
-let preco = 6;
+const qtdeSalgados = document.getElementById("qtdeSalgados");
+const btnComprar = document.getElementById("btnComprar");
+const btnRepor = document.getElementById("btnRepor");
 
-const quantidadeSpan = document.getElementById("quantidade");
-const mensagem = document.getElementById("mensagem");
-const btnComprar = document.getElementById("comprar");
-const btnRepor = document.getElementById("repor");
-const precoSpan = document.getElementById("preco");
+function atualizarTela() {
+    qtdeSalgados.textContent = `Salgados disponíveis: ${estoque}`;
+}
 
-precoSpan.textContent = preco;
-quantidadeSpan.textContent = quantidade;
-
-// Comprar salgado
 btnComprar.addEventListener("click", () => {
-    if (quantidade > 0) {
-        quantidade--;
-        quantidadeSpan.textContent = quantidade;
-        mensagem.textContent = "Você comprou 1 salgado!";
-        mensagem.style.color = "green";
+    if (estoque > 0) {
+        estoque--;
+        atualizarTela();
     } else {
-        mensagem.textContent = "Estoque esgotado!";
-        mensagem.style.color = "red";
+        alert("Estoque esgotado!");
     }
 });
 
-// Repor estoque
 btnRepor.addEventListener("click", () => {
-    quantidade = 20;
-    quantidadeSpan.textContent = quantidade;
-    mensagem.textContent = "Estoque reabastecido!";
-    mensagem.style.color = "blue";
+    estoque = 20;
+    atualizarTela();
 });
+
+atualizarTela();
