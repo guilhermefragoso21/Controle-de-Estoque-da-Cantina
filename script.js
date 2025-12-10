@@ -1,7 +1,7 @@
 // Script da Cantina da Escola
 
 let quantidade = 20;
-let preco = 5;
+let preco = 6;
 
 const quantidadeSpan = document.getElementById("quantidade");
 const mensagem = document.getElementById("mensagem");
